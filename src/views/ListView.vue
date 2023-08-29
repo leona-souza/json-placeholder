@@ -1,9 +1,9 @@
 <script setup lang="ts">
-// import TheWelcome from '../components/TheWelcome.vue'
+import ListPosts from '../components/ListPosts.vue'
 </script>
 
 <template>
   <main>
-    list
+    <ListPosts />
   </main>
 </template>
