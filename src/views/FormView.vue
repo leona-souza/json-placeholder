@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import ViewPost from '../components/ViewPost.vue'
+import FormPost from '../components/FormPost.vue'
 </script>
 
 <template>
   <section>
-    <ViewPost />
+    <FormPost />
   </section>
 </template>
 
@@ -12,6 +12,7 @@ import ViewPost from '../components/ViewPost.vue'
   section {
     display: flex;
     flex-direction: column;
+    width: 100%;
     padding: 0 15rem;
 
     @media (max-width: 1300px) {

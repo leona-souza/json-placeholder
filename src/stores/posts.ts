@@ -4,7 +4,13 @@ import { defineStore } from 'pinia'
 import type { Post } from '@/types/posts'
 
 // SERVICES
-import { getPosts, getPost, createPost } from '@/services/posts'
+import {
+  getPosts,
+  getPost,
+  createPost,
+  editPost,
+  deletePost
+} from '@/services/posts'
 
 export const usePostStore = defineStore({
   id: 'post',
@@ -12,28 +18,25 @@ export const usePostStore = defineStore({
     posts: [] as Post[],
     post: {} as Post
   }),
-  getters: {},
   actions: {
     getPosts() {
       getPosts().then(res => this.posts = res)
     },
-    getPost(id: string) {
+    async getPost(id: string): Promise<void> {
       getPost(id).then(res => this.post = res)
     },
-    createPost({ title, body }: { title: string; body: string }) {
-      createPost({
+    async createPost({ title, body }: Partial<Post>): Promise<void> {
+      await createPost({
         userId: 1,
         title,
         body
       })
     },
-    editPost({ id, title, body }: Partial<Post>) {
-      createPost({
-        userId: 1,
-        title,
-        body,
-        id
-      })
+    async editPost(post: Partial<Post>, postId: string): Promise<void> {
+      await editPost(post, postId)
     },
+    async deletePost(postId: string): Promise<void> {
+      await deletePost(postId)
+    }
   }
 })

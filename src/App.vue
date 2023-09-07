@@ -7,9 +7,7 @@ import { RouterLink, RouterView } from 'vue-router'
     <nav>
       <RouterLink to="/posts">POSTS</RouterLink>
         <div class="separator" />
-      <RouterLink to="/todos">TODOS</RouterLink>
-        <div class="separator" />
-      <RouterLink to="/users">USERS</RouterLink>
+      <RouterLink to="/post/form">CREATE</RouterLink>
     </nav>
   </header>
 

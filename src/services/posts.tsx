@@ -19,7 +19,12 @@ export const createPost = async (post: Partial<Post>): Promise<Post> => {
   return response.data
 }
 
-export const editPost = async (post: Partial<Post>): Promise<Post> => {
-  const response = await api.put<Post>(`/posts/${post.id}`, post)
+export const editPost = async (post: Partial<Post>, postId: string): Promise<Post> => {
+  const response = await api.put<Post>(`/posts/${postId}`, post)
+  return response.data
+}
+
+export const deletePost = async (postId: string): Promise<void> => {
+  const response = await api.delete(`/posts/${postId}`)
   return response.data
 }
